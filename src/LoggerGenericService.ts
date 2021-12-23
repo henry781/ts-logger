@@ -4,7 +4,6 @@ import { LoggerSharedOptions } from './LoggerSharedOptions';
 import { LoggerLevel } from './LoggerLevel';
 import { LoggerServiceDefaultOptions } from './LoggerServiceDefaultOptions';
 import { LogContext } from './LogContext';
-import * as util from 'util';
 import { LoggerOptions } from './LoggerOptions';
 
 export interface IloggerService {
@@ -423,7 +422,7 @@ export class LoggerGenericService implements IloggerService {
       ) {
         obj['content'] = args[0];
       } else {
-        obj['content'] = util.format.apply(this, args);
+        obj['content'] = args.join(' ');
       }
 
       try {
